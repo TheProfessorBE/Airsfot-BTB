@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Dropbox/Projects/Airsoft/2026 - AudioLibrary/**)",
+      "Bash(Get-ChildItem \"C:\\\\Dropbox\\\\Projects\\\\Airsoft\\\\2026 - AudioLibrary\" -Exclude \".venv\")",
+      "Bash(Select-Object Name, Extension)",
+      "Read(//c/Users/janst/.claude/projects/c--Dropbox-Projects-Airsoft-2026---Bomb-The-Bus/memory/**)"
+    ]
+  }
+}
