@@ -23,13 +23,13 @@ The central unit is the only one with audio and LEDs. The defusal device is opti
 ### DFPlayer Mini
 
 ```
-ESP32          DFPlayer Mini
-─────────────────────────────
-GPIO 17  ───[1kΩ]──  RX
-GPIO 16  ──────────  TX
-GPIO 25  ──────────  BUSY
-GND      ──────────  GND
-5V       ──────────  VCC
+ESP32 (WROOM)   GPIO    DFPlayer Mini
+──────────────────────────────────────
+D17             17   ───[1kΩ]──  RX
+D16             16   ──────────  TX
+D25             25   ──────────  BUSY
+GND                  ──────────  GND
+5V                   ──────────  VCC
 
 Speaker output:
   SPK1 ──┬── Speaker (+)
@@ -47,11 +47,11 @@ Line output (optional, to external amp):
 ### WS2812B LED Strip
 
 ```
-ESP32          LED Strip
-────────────────────────
-GPIO 13  ──────  DIN (data in)
-5V       ──────  +5V
-GND      ──────  GND
+ESP32 (WROOM)   GPIO    LED Strip
+──────────────────────────────────
+D13             13   ──[300Ω]──  DIN (data in)
+5V                   ──────────  +5V
+GND                  ──────────  GND
 ```
 
 > For strips longer than ~30 LEDs, power the strip directly from the 5V supply
@@ -61,11 +61,11 @@ GND      ──────  GND
 ### Defusal Buttons (×2)
 
 ```
-ESP32          Button A        Button B
-────────────────────────────────────────
-GPIO 26  ──────  Pin 1          —
-GPIO 27  ──────  —              Pin 1
-GND      ──────  Pin 2          Pin 2
+ESP32 (WROOM)   GPIO    Button A        Button B
+──────────────────────────────────────────────────
+D26             26   ──  Pin 1          —
+D27             27   ──  —              Pin 1
+GND                  ──  Pin 2          Pin 2
 ```
 
 Internal pull-ups are enabled in firmware — no external resistors needed.
@@ -73,14 +73,14 @@ Both buttons must be held simultaneously for the defuse hold duration.
 
 ### Full Pin Summary
 
-| GPIO | Function |
-|---|---|
-| 13 | WS2812B data |
-| 16 | DFPlayer TX → ESP32 RX (Serial1) |
-| 17 | DFPlayer RX ← ESP32 TX (Serial1) via 1 kΩ |
-| 25 | DFPlayer BUSY (LOW while playing) |
-| 26 | Defusal button A (active LOW) |
-| 27 | Defusal button B (active LOW) |
+| Label | GPIO | Function |
+|---|---|---|
+| D13 | 13 | WS2812B data via 300 Ω |
+| D16 | 16 | DFPlayer TX → ESP32 RX (Serial1) |
+| D17 | 17 | DFPlayer RX ← ESP32 TX (Serial1) via 1 kΩ |
+| D25 | 25 | DFPlayer BUSY (LOW while playing) |
+| D26 | 26 | Defusal button A (active LOW) |
+| D27 | 27 | Defusal button B (active LOW) |
 
 ---
 
@@ -92,12 +92,12 @@ and shows the current game state on an I2C LCD.
 ### I2C LCD (20×4 or 16×4, PCF8574 controller)
 
 ```
-ESP32          LCD Module
-──────────────────────────
-GPIO 21  ──────  SDA
-GPIO 22  ──────  SCL
-3.3V     ──────  VCC   (or 5V — check your module)
-GND      ──────  GND
+ESP32 (WROOM)   GPIO    LCD Module
+────────────────────────────────────
+D21             21   ──  SDA
+D22             22   ──  SCL
+3.3V                 ──  VCC   (or 5V — check your module)
+GND                  ──  GND
 ```
 
 Default I2C address: `0x27`. If the display stays blank, try `0x3F`
@@ -106,10 +106,10 @@ Default I2C address: `0x27`. If the display stays blank, try `0x3F`
 ### Defusal Button
 
 ```
-ESP32          Button
-───────────────────────
-GPIO 0   ──────  Pin 1   (boot button — or use any GPIO)
-GND      ──────  Pin 2
+ESP32 (WROOM)   GPIO    Button
+────────────────────────────────
+D0 (BOOT)       0    ──  Pin 1   (or any free GPIO)
+GND                  ──  Pin 2
 ```
 
 ---
