@@ -200,10 +200,6 @@ class ScanCallback : public BLEAdvertisedDeviceCallbacks {
                     else
                         props[i].smoothed = EMA_ALPHA * raw + (1.0f - EMA_ALPHA) * props[i].smoothed;
                     props[i].lastSeen = millis();
-                    if (!menuActive)
-                        Serial.printf("[BLE] %-6s  raw %4d  smooth %6.1f  %s\n",
-                            PROP_NAME[i], (int)raw, props[i].smoothed,
-                            propPresent(i) ? "PRESENT" : "weak");
                     return;
                 }
             }

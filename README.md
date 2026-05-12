@@ -36,9 +36,19 @@ Speaker output:
   SPK2 ──┴── Speaker (−)   8Ω / up to 3W
 
 Line output (optional, to external amp):
-  DAC_R ──[1kΩ]── Line R
-  DAC_L ──[1kΩ]── Line L
-  GND   ────────── Line GND
+  Mono:   DAC_R ──[1kΩ]── Amp input (+)
+          GND   ────────── Amp input (−)
+
+  Stereo: DAC_R ──[1kΩ]── Line R
+          DAC_L ──[1kΩ]── Line L
+          GND   ────────── Line GND
+
+  GND can be taken from any GND pin on the DFPlayer, ESP32, or
+  shared power supply — they are all on the same rail.
+  The amp must share this same ground; a separate ground will cause hum.
+
+  All audio clips in this project are mono — DAC_R and DAC_L
+  carry the same signal, so the mono connection loses nothing.
 ```
 
 > The 1 kΩ resistor on DFPlayer RX is recommended to protect the UART input.
