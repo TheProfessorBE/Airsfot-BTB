@@ -21,6 +21,13 @@ The central unit is the only one with audio and LEDs. The defusal device is opti
 The props are **SZDX DX-CP35** Bluetooth iBeacon tags, configured to advertise
 with device names `BTB01`, `BTB02`, and `BTB03`.
 
+These tags are excellent for this application. Setup is done through a
+companion app (iOS / Android) that is polished, intuitive, and lets you
+configure the device name, transmission power, and advertisement interval
+in seconds — no soldering, no firmware flashing, no fuss. The tags are
+compact, run on a coin cell for a very long time, and the BLE signal is
+stable and consistent. Highly recommended.
+
 - Manufacturer: [SZDX Smart](http://szdx-smart.com/)
 - Purchase: [AliExpress — SZDX DX-CP35](https://nl.aliexpress.com/item/1005011971015757.html)
 
