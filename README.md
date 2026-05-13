@@ -12,9 +12,17 @@ simultaneously for a set duration to defuse it before detonation.
 |---|---|---|
 | Central ESP32 | `CentralESP32/CentralESP32.ino` | Game logic, LEDs, audio, button inputs |
 | Defusal Device ESP32 | `DefusalDevice/DefusalDevice.ino` | LCD status display, single hold-button (optional, BLE-based) |
-| Prop 1–3 | iBeacon / separate ESP32 | Advertise as `BTB01`, `BTB02`, `BTB03` |
+| Prop 1–3 | SZDX DX-CP35 iBeacon tag | Advertise as `BTB01`, `BTB02`, `BTB03` |
 
 The central unit is the only one with audio and LEDs. The defusal device is optional — the two pushbuttons wired directly to the central are the primary defusal mechanism.
+
+### Props — SZDX DX-CP35 iBeacon Tags
+
+The props are **SZDX DX-CP35** Bluetooth iBeacon tags, configured to advertise
+with device names `BTB01`, `BTB02`, and `BTB03`.
+
+- Manufacturer: [SZDX Smart](http://szdx-smart.com/)
+- Purchase: [AliExpress — SZDX DX-CP35](https://nl.aliexpress.com/item/1005011971015757.html)
 
 ---
 
